@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="DataMigration_BTF">
+    <default-activity id="__1">AddEditDataMigration</default-activity>
+    <view id="AddEditDataMigration">
+      <page>/fragments/AddEditDataMigration.jsff</page>
+    </view>
+    <use-page-fragments/>
+    <visibility id="__2"/>
+  </task-flow-definition>
+</adfc-config>

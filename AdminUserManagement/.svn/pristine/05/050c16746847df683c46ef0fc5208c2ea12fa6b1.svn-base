@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ReportsPageDef" Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Reports_ROVO1" RangeSize="25"
+              DataControl="Functions_AMDataControl" id="Reports_ROVO1Iterator"/>
+    <iterator id="XxfndReportParamsVoIterator" Binds="XxfndReportParamsVo"
+              DataControl="Functions_AMDataControl" RangeSize="25"/>
+    <iterator id="Functions_VO1Iterator" Binds="Functions_VO1"
+              DataControl="Functions_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <list IterBinding="Reports_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Report" id="Report" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <methodAction id="getLOVValues"
+                  InstanceName="Functions_AMDataControl.dataProvider"
+                  DataControl="Functions_AMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getLOVValues" IsViewObjectMethod="false"
+                  ReturnName="data.Functions_AMDataControl.methodResults.getLOVValues_Functions_AMDataControl_dataProvider_getLOVValues_result">
+      <NamedData NDName="tableName" NDType="java.lang.String"/>
+      <NamedData NDName="value" NDType="java.lang.String"/>
+      <NamedData NDName="displayValue" NDType="java.lang.String"/>
+      <NamedData NDName="lookupType" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="Reports_ROVO1Iterator" id="ReportPath">
+      <AttrNames>
+        <Item Value="ReportPath"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

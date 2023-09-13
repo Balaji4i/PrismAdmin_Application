@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchDatasecurityPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataSecurity_ROVO1" RangeSize="25"
+              DataControl="DataSecurity_AMDataControl"
+              id="DataSecurity_ROVO1Iterator"/>
+    <searchRegion Criteria="SearchDataSecurity"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DataSecurity_ROVO1Iterator"
+                  id="SearchDataSecurityQuery"/>
+    <iterator Binds="DataSecurity_VO1" RangeSize="25"
+              DataControl="DataSecurity_AMDataControl"
+              id="DataSecurity_VO1Iterator"/>
+    <iterator id="DataSecSegment_ROVO1Iterator" Binds="DataSecSegment_ROVO1"
+              DataControl="DataSecurity_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DataSecurity_ROVO1Iterator" id="DataSecurity_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.DataSecurity_ROVO"
+                      Name="DataSecurity_ROVO10">
+        <AttrNames>
+          <Item Value="SeqNumber"/>
+          <Item Value="SegmentColumn"/>
+          <Item Value="ColumnName"/>
+          <Item Value="SrcTable"/>
+          <Item Value="SrcColumn"/>
+          <Item Value="SrcDispColumn"/>
+          <Item Value="SrcLookupType"/>
+          <Item Value="ActiveYn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DataSecurity_ROVO1Iterator" id="DseqId">
+      <AttrNames>
+        <Item Value="DseqId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataSecurity_VO1Iterator" id="SeqNumber">
+      <AttrNames>
+        <Item Value="SeqNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SegmentColumn" id="SegmentColumn" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DataSecurity_VO1Iterator" id="ColumnName">
+      <AttrNames>
+        <Item Value="ColumnName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcTable" id="SrcTable" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcColumn" id="SrcColumn" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+          <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcDispColumn" id="SrcDispColumn" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcLookupType" id="SrcLookupType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+          
+    <attributeValues IterBinding="DataSecurity_VO1Iterator" id="Trans_Active">
+      <AttrNames>
+        <Item Value="Trans_Active"/>
+      </AttrNames>
+    </attributeValues>
+   
+    <action id="Commit" DataControl="DataSecurity_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="DataSecurity_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="DataSecurity_VO1Iterator" id="CreateInsert"
+            InstanceName="DataSecurity_AMDataControl.DataSecurity_VO1"
+            DataControl="DataSecurity_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="DataSecurity_VO1Iterator" id="ExecuteWithParams"
+            InstanceName="DataSecurity_AMDataControl.DataSecurity_VO1"
+            DataControl="DataSecurity_AMDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BV_ID" NDValue="#{pageFlowScope.sid}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

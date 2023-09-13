@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2017, Oracle and/or its affiliates. All rights reserved.
+-->
+<menu>
+    <groupNode id="AdminModule" idref="AdminModuleId" label="">
+        <!--Function-->
+        <itemNode id="Function" label="Function" icon="/images/grid_matte_dashboard.png"
+                  cardIcon="/images/grid_matte_dashboard.png" taskMenuSource="/taskFlow/Functions_BTF.xml"
+                  securedResourceName="/taskFlow/Functions_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+         <!--User-->
+        <itemNode id="User" label="User" icon="/images/grid_matte_contacts.png"
+                  cardIcon="/images/grid_matte_contacts.png" taskMenuSource="/taskFlow/User_BTF.xml"
+                  securedResourceName="/taskFlow/User_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+        <!--Roles-->
+        <itemNode id="Roles" label="Roles" icon="/images/grid_matte_group.png"
+                  cardIcon="/images/grid_matte_group.png" taskMenuSource="/taskflow/Roles_BTF.xml"
+                  securedResourceName="/taskflow/Roles_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+        <!--Menu-->
+        <itemNode id="Menu" label="Menu" icon="/images/grid_matte_checklist.png"
+                  cardIcon="/images/grid_matte_checklist.png" taskMenuSource="/taskFlow/Menu_BTF.xml"
+                  securedResourceName="/taskFlow/Menu_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+         <!--Menu Access-->
+        <itemNode id="MenuAccess" label="Menu Access" icon="/images/grid_matte_clipboardcheckmark.png"
+                  cardIcon="/images/grid_matte_clipboardcheckmark.png" taskMenuSource="/taskFlow/MenuAccess_BTF.xml"
+                  securedResourceName="/taskFlow/MenuAccess_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+        <!--Attribute Group-->
+        <itemNode id="AttributeGroup" label="Attribute Group" icon="/images/grid_matte_groupdashed.png"
+                  cardIcon="/images/grid_matte_groupdashed.png" taskMenuSource="/taskflow/AttributeGroup_BTF.xml"
+                  securedResourceName="/taskflow/AttributeGroup_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+        <!--User Group-->
+        <itemNode id="UserGroup" label="User Group" icon="/images/grid_matte_group.png"
+                  cardIcon="/images/grid_matte_group.png" taskMenuSource="/taskflow/UserGroup_BTF.xml"
+                  securedResourceName="/taskflow/UserGroup_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>          
+        <!--Lookup-->
+        <itemNode id="Lookup" label="Lookup" icon="/images/grid_matte_binoculars.png"
+                  cardIcon="/images/grid_matte_binoculars.png" taskMenuSource="/taskFlow/Lookup_BTF.xml"
+                  securedResourceName="/taskFlow/Lookup_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+        <!--Data Security-->
+        <itemNode id="DataSecurity" label="Data Security" icon="/images/grid_matte_shieldlock.png"
+                  cardIcon="/images/grid_matte_shieldlock.png" taskMenuSource="/taskFlow/DataSecurity_BTF.xml"
+                  securedResourceName="/taskFlow/DataSecurity_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="false"/>
+        <!--Data Combination-->
+        <itemNode id="DataCombination" label="Data Combination" icon="/images/grid_matte_distribute.png"
+                  cardIcon="/images/grid_matte_distribute.png" taskMenuSource="/taskFlow/DataCombination_BTF.xml"
+                  securedResourceName="/taskFlow/DataCombination_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="false"/>
+        <!--Data Group-->
+        <itemNode id="DataGroup" label="Data Group" icon="/images/grid_matte_group.png"
+                  cardIcon="/images/grid_matte_group.png" taskMenuSource="/taskFlow/DataGroup_BTF.xml"
+                  securedResourceName="/taskFlow/DataGroup_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="false"/>
+         <!--Flex Fields-->
+        <itemNode id="FlexFields" label="Flex Fields" icon="/images/grid_matte_clipboardcheckmark.png"
+                  cardIcon="/images/grid_matte_clipboardcheckmark.png" taskMenuSource="/WEB-INF/taskflow/flex-definition-task-flow.xml"
+                  securedResourceName="/WEB-INF/taskflow/flex-definition-task-flow.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="false"/>
+         <!--Data Migration Configuration-->
+        <itemNode id="DataMigrationConfiguration" label="Data Migration Configuration" icon="/images/grid_matte_directory.png"
+                  cardIcon="/images/grid_matte_directory.png" taskMenuSource="/taskFlow/DataMigration_BTF.xml"
+                  securedResourceName="/taskFlow/DataMigration_BTF.xml" focusViewId="/AdminApp"
+                  webApp="AdminApp" applicationStripe="AdminApp" showOnHomeGrid="true" rendered="true"/>
+    </groupNode>
+</menu>

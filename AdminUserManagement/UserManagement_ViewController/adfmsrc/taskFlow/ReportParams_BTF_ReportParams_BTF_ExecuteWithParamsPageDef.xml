@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="ReportParams_BTF_ReportParams_BTF_ExecuteWithParamsPageDef"
+                Package="taskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XxfndReportParamsVo" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="XxfndReportParamsVoIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XxfndReportParamsVoIterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="b_FuncId" NDValue="#{pageFlowScope.pFuncId}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

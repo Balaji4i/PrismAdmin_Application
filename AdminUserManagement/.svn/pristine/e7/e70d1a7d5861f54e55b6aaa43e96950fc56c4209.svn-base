@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ReportParamsPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxfndReportParamsVo" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="XxfndReportParamsVoIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxfndReportParamsVoIterator" id="XxfndReportParamsVo">
+      <nodeDefinition DefName="fusion.um.model.VO.XxfndReportParamsVo"
+                      Name="XxfndReportParamsVo0">
+        <AttrNames>
+          <Item Value="SeqNumber"/>
+          <Item Value="ParamName"/>
+          <Item Value="ParamColumn"/>
+          <Item Value="ParamDispColumn"/>
+          <Item Value="ParamLookupType"/>
+          <Item Value="DataType"/>
+          <Item Value="ActiveYn"/>
+          <Item Value="Token"/>
+          <Item Value="Mandatory"/>
+          
+          <Item Value="ParamTable"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxfndReportParamsVoIterator" id="Delete"
+            InstanceName="Functions_AMDataControl.XxfndReportParamsVo"
+            DataControl="Functions_AMDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxfndReportParamsVoIterator" id="CreateInsert"
+            InstanceName="Functions_AMDataControl.XxfndReportParamsVo"
+            DataControl="Functions_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator" id="SeqNumber">
+      <AttrNames>
+        <Item Value="SeqNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XxfndReportParamsVoIterator" StaticList="true"
+            id="ActiveYn">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator" id="FuncId">
+      <AttrNames>
+        <Item Value="FuncId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator"
+                     id="ParamLookupType">
+      <AttrNames>
+        <Item Value="ParamLookupType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator" id="ParamColumn">
+      <AttrNames>
+        <Item Value="ParamColumn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator"
+                     id="ParamDispColumn">
+      <AttrNames>
+        <Item Value="ParamDispColumn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxfndReportParamsVoIterator" id="DataType">
+      <AttrNames>
+        <Item Value="DataType"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XxfndReportParamsVoIterator" id="Mandatory"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Mandatory"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

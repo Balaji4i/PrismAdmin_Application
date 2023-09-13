@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.pgl1}"
+                           id="pgl1">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Data Security"
+                              binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.SearchDataSecurityQuery.queryDescriptor}"
+                  model="#{bindings.SearchDataSecurityQuery.queryModel}"
+                  queryListener="#{bindings.SearchDataSecurityQuery.processQuery}"
+                  queryOperationListener="#{bindings.SearchDataSecurityQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"
+                  binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.qryId1}"/>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.s1}"
+                   id="s1"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.pb1}"
+                     id="pb1" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.pc1}"
+                              id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.t1}"
+                          id="t1" flex="100">
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.cil1}"
+                                     id="cil1" icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png"
+                                     actionListener="#{backingBeanScope.backing_fragments_SearchDatasecurity.onClickCreate}">
+        
+                </af:commandImageLink>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.s2}"
+                           id="s2"/>
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.cil2}"
+                                     id="cil2" icon="/image/edit.png"
+                                     hoverIcon="/image/edit_en.png"
+                                     actionListener="#{backingBeanScope.backing_fragments_SearchDatasecurity.onClickEdit}">
+                                      
+                  <af:setPropertyListener from="#{bindings.DseqId.inputValue}" to="#{pageFlowScope.sid}"
+                                          type="action"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.DataSecurity_ROVO1.collectionModel}"
+                      var="row" rows="#{bindings.DataSecurity_ROVO1.rangeSize}"
+                      emptyText="#{bindings.DataSecurity_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.DataSecurity_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DataSecurity_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.resId1}"
+                      scrollPolicy="page" autoHeightRows="0">
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.SeqNumber.name}"
+                         sortable="false"
+                         headerText="Seq No"
+                         id="resId1c1" width="50"
+                         inlineStyle="text-align:center;height:0.8cm;"
+                         align="center">
+                <af:outputText value="#{row.SeqNumber}" id="ot5">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DataSecurity_ROVO1.hints.SeqNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.SegmentColumn.name}"
+                         sortable="false"
+                         headerText="Segment"
+                         id="resId1c2" width="198" align="center">
+                <af:commandLink text="#{row.SegmentColumn}" id="cl1"
+                           actionListener="#{backingBeanScope.backing_fragments_SearchDatasecurity.onClickEdit}">
+                               
+                  <af:setPropertyListener from="#{bindings.DseqId.inputValue}"
+                                          to="#{pageFlowScope.sid}" type="action"/>
+                </af:commandLink>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.ColumnName.name}"
+                         sortable="false"
+                         headerText="Column Name"
+                         id="resId1c3" width="198" align="center">
+                <af:outputText value="#{row.ColumnName}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.SrcTable.name}"
+                         sortable="false"
+                         headerText="Source Table"
+                         id="resId1c4" width="198" align="center">
+                <af:outputText value="#{row.SrcTable}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.SrcColumn.name}"
+                         sortable="false"
+                         headerText="Source Column"
+                         id="resId1c5" width="198" align="center">
+                <af:outputText value="#{row.SrcColumn}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.SrcDispColumn.name}"
+                         sortable="false"
+                         headerText="Display Column"
+                         id="resId1c6" width="198" align="center">
+                <af:outputText value="#{row.SrcDispColumn}" id="ot1"/>
+              </af:column>
+              <af:column headerText="Lookup Type"
+                         id="c1" width="198" align="center">
+                <af:selectOneChoice value="#{row.bindings.SrcLookupType.inputValue}"
+                                    label="#{row.bindings.SrcLookupType.label}"
+                                    required="#{bindings.DataSecurity_ROVO1.hints.SrcLookupType.mandatory}"
+                                    shortDesc="#{bindings.DataSecurity_ROVO1.hints.SrcLookupType.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.SrcLookupType.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataSecurity_ROVO1.hints.ActiveYn.name}"
+                         sortable="false"
+                         headerText="Active ?"
+                         id="resId1c8" width="198" align="center">
+                <af:outputText value="#{row.ActiveYn}" id="ot7"
+                               rendered="false"/>
+                <af:image source="/image/Ok_icon.png" id="i1"
+                          rendered="#{row.ActiveYn eq 'Y'}"/>
+                <af:image source="/image/Cancel.png" id="i2"
+                          rendered="#{row.ActiveYn eq 'N'}"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+        <af:popup binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.p1}"
+                  id="p1">
+                
+          <af:dialog binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.d1}"
+                     id="d1" type="none" title="Data Security">
+                 <f:facet name="buttonBar">
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.pgl3}"
+                                 id="pgl3" layout="horizontal" halign="right">
+            <af:commandButton text="Save"
+                              binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.cb1}"
+                              actionListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickCommit}"
+                              id="cb1" action="save"/>
+            <af:commandButton text="Cancel"
+                              binding="#{backingBeanScope.backing_fragments_SearchDatasecurity.cb2}"
+                              id="cb2"
+                              actionListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickRollback}"/>
+                 </af:panelGroupLayout> </f:facet>      
+            
+            <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.pfl1}"
+                            id="pfl1"
+                            styleClass="AFStretchHeight">
+          <af:inputText value="#{bindings.SeqNumber.inputValue}"
+                        label="Seq No"
+                        required="#{bindings.SeqNumber.hints.mandatory}"
+                        columns="#{bindings.SeqNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.SeqNumber.hints.precision}"
+                        shortDesc="#{bindings.SeqNumber.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.it1}"
+                        id="it1" showRequired="true"
+                        contentStyle="width:220px;">
+            <f:validator binding="#{bindings.SeqNumber.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SeqNumber.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.SegmentColumn.inputValue}"
+                              label="Segment Column"
+                              required="#{bindings.SegmentColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SegmentColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc5}"
+                              id="soc5" showRequired="true"
+                              valueChangeListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickSegment}"
+                              autoSubmit="true" contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SegmentColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si5}"
+                           id="si5"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.ColumnName.inputValue}"
+                        label="Column Name"
+                        required="#{bindings.ColumnName.hints.mandatory}"
+                        columns="#{bindings.ColumnName.hints.displayWidth}"
+                        maximumLength="#{bindings.ColumnName.hints.precision}"
+                        shortDesc="#{bindings.ColumnName.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.it3}"
+                        id="it3" showRequired="true"
+                        contentStyle="width:220px;">
+            <f:validator binding="#{bindings.ColumnName.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.SrcTable.inputValue}"
+                              label="Source Table"
+                              required="#{bindings.SrcTable.hints.mandatory}"
+                              shortDesc="#{bindings.SrcTable.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc1}"
+                              id="soc6" showRequired="true" autoSubmit="true"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcTable.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si1}"
+                           id="si6"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcColumn.inputValue}"
+                              label="Source Column"
+                              required="#{bindings.SrcColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SrcColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc2}"
+                              id="soc2" showRequired="true" autoSubmit="true"
+                              partialTriggers="soc6"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si2}"
+                           id="si2"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcDispColumn.inputValue}"
+                              label="Source Display Column"
+                              required="#{bindings.SrcDispColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SrcDispColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc3}"
+                              id="soc3" showRequired="true" autoSubmit="true"
+                              partialTriggers="soc6"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcDispColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si3}"
+                           id="si3"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcLookupType.inputValue}"
+                              label="Source Lookup Type"
+                              required="#{bindings.SrcLookupType.hints.mandatory}"
+                              shortDesc="#{bindings.SrcLookupType.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc4}"
+                              id="soc4"
+                              visible="#{bindings.SrcTable.inputValue=='XXFND_LOOKUP_VALUES'?'true':'false'}"
+                              partialTriggers="soc6"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcLookupType.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si4}"
+                           id="si4"/>
+          </af:selectOneChoice>
+          <af:selectBooleanCheckbox value="#{bindings.Trans_Active.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.Trans_Active.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.sbc1}"
+                                    id="sbc1" autoSubmit="true"/>
+        </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:panelGroupLayout>
+      
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_SearchDatasecurity-->
+</jsp:root>

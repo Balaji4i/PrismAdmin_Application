@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditDataMigrationPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XXdmInterfaceMaster_Vo1" RangeSize="25"
+              DataControl="DataCombination_AMDataControl"
+              id="XXdmInterfaceMaster_Vo1Iterator"/>
+    <iterator Binds="XxdmStgMapping_VO1" RangeSize="25"
+              DataControl="DataCombination_AMDataControl"
+              id="XxdmStgMapping_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+          id="XXdmInterfaceMaster_Vo1">
+      <nodeDefinition DefName="fusion.um.model.VO.XXdmInterfaceMaster_Vo"
+                      Name="XXdmInterfaceMaster_Vo10">
+        <AttrNames>
+          <Item Value="IfaceName"/>
+          <Item Value="IfaceShortName"/>
+          <Item Value="LookupType"/>
+          <Item Value="ParentIfaceId"/>
+          <Item Value="ProcessProc"/>
+          <Item Value="StagingTable"/>
+          <Item Value="ValidationProc"/>
+          <Item Value="DataExtractionProc"/>
+          <Item Value="DisplayOrder"/>
+          <Item Value="DefaultTab"/>
+          <Item Value="DataExtractionObjType"/>
+          <Item Value="DataExtractionTableType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="DataCombination_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="DataCombination_AMDataControl"/>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="IfaceName">
+      <AttrNames>
+        <Item Value="IfaceName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="IfaceShortName">
+      <AttrNames>
+        <Item Value="IfaceShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="LookupType">
+      <AttrNames>
+        <Item Value="LookupType"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XXdmInterfaceMaster_Vo1Iterator" StaticList="false"
+          Uses="LOV_StagingTable" id="StagingTable" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="XXdmInterfaceMaster_Vo1Iterator" StaticList="false"
+          Uses="LOV_ParentIfaceId" id="ParentIfaceId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="ProcessProc">
+      <AttrNames>
+        <Item Value="ProcessProc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="ValidationProc">
+      <AttrNames>
+        <Item Value="ValidationProc"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XXdmInterfaceMaster_Vo1Iterator" id="CreateInsert"
+            InstanceName="DataCombination_AMDataControl.XXdmInterfaceMaster_Vo1"
+            DataControl="DataCombination_AMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="XxdmStgMapping_VO1Iterator" id="XxdmStgMapping_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.XxdmStgMapping_VO"
+                      Name="XxdmStgMapping_VO10">
+        <AttrNames>
+          <Item Value="StgColumnName"/>
+          <Item Value="DataType"/>
+          <Item Value="DefaultValue"/>
+          <Item Value="DisplayInPage"/>
+          <Item Value="ExcelColumnNum"/>
+          <Item Value="PromptName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxdmStgMapping_VO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XXdmInterfaceMaster_Vo1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="XxdmStgMapping_VO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="DataExtractionProc">
+      <AttrNames>
+        <Item Value="DataExtractionProc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="DisplayOrder">
+      <AttrNames>
+        <Item Value="DisplayOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="DefaultTab">
+      <AttrNames>
+        <Item Value="DefaultTab"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="DataExtractionTableType">
+      <AttrNames>
+        <Item Value="DataExtractionTableType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XXdmInterfaceMaster_Vo1Iterator"
+                     id="DataExtractionObjType">
+      <AttrNames>
+        <Item Value="DataExtractionObjType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

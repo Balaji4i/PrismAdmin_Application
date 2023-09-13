@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxdmInterfaceMaster_EO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="XXDM_INTERFACE_MASTER"
+  AliasName="XxdmInterfaceMaster_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="IfaceId"
+    IsNotNull="true"
+    ColumnName="IFACE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXDM_INTERFACE_MASTER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IfaceName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="IFACE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IfaceShortName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="IFACE_SHORT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StagingTable"
+    Precision="60"
+    ColumnName="STAGING_TABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ValidationProc"
+    Precision="60"
+    ColumnName="VALIDATION_PROC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProcessProc"
+    Precision="60"
+    ColumnName="PROCESS_PROC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentIfaceId"
+    ColumnName="PARENT_IFACE_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DisplayOrder"
+    ColumnName="DISPLAY_ORDER"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="XXDM_INTERFACE_MASTER"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="XXDM_INTERFACE_MASTER"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateLogin"
+    Precision="100"
+    ColumnName="LAST_UPDATE_LOGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupType"
+    Precision="1000"
+    ColumnName="LOOKUP_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DataExtractionProc"
+    Precision="60"
+    ColumnName="DATA_EXTRACTION_PROC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DefaultTab"
+    Precision="1000"
+    ColumnName="DEFAULT_TAB"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DataExtractionTableType"
+    Precision="60"
+    ColumnName="DATA_EXTRACTION_TABLE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DataExtractionObjType"
+    Precision="60"
+    ColumnName="DATA_EXTRACTION_OBJ_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXDM_INTERFACE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="SysC0015411">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015411"/>
+      <Attr Name="_checkCondition" Value='"IFACE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.IfaceId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015412">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015412"/>
+      <Attr Name="_checkCondition" Value='"IFACE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.IfaceName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015413">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015413"/>
+      <Attr Name="_checkCondition" Value='"IFACE_SHORT_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.IfaceShortName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015414">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015414"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015415">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015415"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015416">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015416"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015417">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015417"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxdmInterfaceMasterPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXDM_INTERFACE_MASTER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.XxdmInterfaceMaster_EO.IfaceId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="Functions_BTF_Functions_BTF_CreatePageDef"
+                Package="taskFlow" SkipValidation="true">
+  <parameters/>
+ <executables>
+    <iterator Binds="Functions_VO1" RangeSize="25"
+              DataControl="Functions_AMDataControl" id="Functions_VO1Iterator"/>
+    <iterator Binds="FuncApprovals_VO1" RangeSize="10"
+              DataControl="Functions_FA_AMDataControl"
+              id="FuncApprovals_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="Functions_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FuncApprovals_VO1Iterator" id="CreateInsert1"
+            InstanceName="Functions_FA_AMDataControl.FuncApprovals_VO1"
+            DataControl="Functions_FA_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

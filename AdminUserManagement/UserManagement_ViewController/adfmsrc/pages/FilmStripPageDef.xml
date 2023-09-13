@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="FilmStripPageDef" Package="pages" ControllerClass="com.view.beans.filmStrip.FilmStripPhaseListener">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+     <taskFlow id="dynamicRegion1"
+              taskFlowId="${backingBeanScope.FilmStripBean.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"/>
+    <iterator id="checkUserROVO1Iterator" Binds="checkUserROVO1"
+              DataControl="CheckUserAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <methodAction id="applicationSessionSetup"
+                  InstanceName="Functions_AMDataControl.dataProvider"
+                  DataControl="Functions_AMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="applicationSessionSetup"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.Functions_AMDataControl.methodResults.applicationSessionSetup_Functions_AMDataControl_dataProvider_applicationSessionSetup_result"/>
+  </bindings>
+</pageDefinition>

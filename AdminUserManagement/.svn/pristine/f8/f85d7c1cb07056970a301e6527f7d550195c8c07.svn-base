@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="tf_main_tf_main_CheckUserNamePageDef" Package="taskFlow"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="CheckUserName" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CheckUserName"
+                  IsViewObjectMethod="false"
+                  DataControl="CheckUserAppModuleDataControl"
+                  InstanceName="CheckUserAppModuleDataControl.dataProvider"
+                  ReturnName="data.CheckUserAppModuleDataControl.methodResults.CheckUserName_CheckUserAppModuleDataControl_dataProvider_CheckUserName_result">
+      <NamedData NDName="jwt" NDValue="" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

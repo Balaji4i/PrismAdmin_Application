@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="tf-main">
+    <default-activity id="__1">FilmStrip</default-activity>
+    <input-parameter-definition id="__20">
+      <name id="__21">jwt</name>
+      <value>#{pageFlowScope.tokens}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <view id="Dashboard">
+      <page>/pages/Dashboard.jspx</page>
+    </view>
+    <view id="Home">
+      <page>/pages/Home.jspx</page>
+    </view>
+    <method-call id="applicationSessionSetup">
+      <method>#{bindings.applicationSessionSetup.execute}</method>
+      <return-value id="__13">#{sessionScope.applicationSetup}</return-value>
+      <outcome id="__7">
+        <fixed-outcome>applicationSessionSetup</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CheckUserName">
+      <method>#{bindings.CheckUserName.execute}</method>
+      <outcome id="__26">
+        <fixed-outcome>CheckUserName</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FilmStrip">
+      <page>/pages/FilmStrip.jspx</page>
+    </view>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.val eq 'validUser'}</expression>
+        <outcome id="__41">validUser</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.val eq 'invalidUser'}</expression>
+        <outcome id="__42">invalidUser</outcome>
+      </case>
+      <default-outcome>invalidUser</default-outcome>
+    </router>
+    <view id="Invalid">
+      <page>/pages/Invalid.jspx</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">Dashboard</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">toHome</from-outcome>
+        <to-activity-id id="__4">Home</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">Home</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">toDashboard</from-outcome>
+        <to-activity-id id="__10">Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">applicationSessionSetup</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__16">applicationSessionSetup</from-outcome>
+        <to-activity-id id="__18">Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id id="__28">CheckUserName</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome id="__29">CheckUserName</from-outcome>
+        <to-activity-id id="__31">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id id="__33">router1</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome id="__36">validUser</from-outcome>
+        <to-activity-id id="__34">FilmStrip</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__37">
+        <from-outcome id="__39">invalidUser</from-outcome>
+        <to-activity-id id="__38">Invalid</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility id="__19">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

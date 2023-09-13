@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:panelGridLayout id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+            <af:gridCell marginStart="5px" width="50%" id="gc1">
+              <af:outputText value="Data Migration" id="ot3"
+                             inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         id="gc2" halign="end">
+              <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                text="Save"
+                                id="cb3"
+                                action="#{backingBeanScope.backing_pages_Dashboard.onclickSave}"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2" flex="100">
+              <af:commandImageLink id="cil1"
+                                   icon="/image/add.png"
+                                   actionListener="#{backingBeanScope.backing_pages_Dashboard.onClickAddDataMigration}"/>
+              <af:commandImageLink id="cil2" icon="/image/edit.png">
+                <af:showPopupBehavior popupId="p1" triggerType="action"/>
+              </af:commandImageLink>
+              <af:commandImageLink actionListener="#{bindings.Delete.execute}"
+                                   id="cil4" icon="/image/delete.png"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.XXdmInterfaceMaster_Vo1.collectionModel}"
+                    var="row"
+                    rows="#{bindings.XXdmInterfaceMaster_Vo1.rangeSize}"
+                    emptyText="#{bindings.XXdmInterfaceMaster_Vo1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="6"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.XXdmInterfaceMaster_Vo1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.XXdmInterfaceMaster_Vo1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" varStatus="vs"
+                    scrollPolicy="page" autoHeightRows="0">
+            <af:column id="c8" headerText="S.No" width="50"
+                       inlineStyle="height:0.8cm;" align="center">
+              <af:outputText value="#{vs.index+1}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.name}"
+                       sortable="false" headerText="Interface Name" id="c7"
+                       width="200" frozen="true" align="center">
+              <af:inputText value="#{row.bindings.IfaceName.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceName.tooltip}"
+                            id="it4" readOnly="true">
+                <f:validator binding="#{row.bindings.IfaceName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.name}"
+                       sortable="false" headerText="Interface Short Name"
+                       id="c2" width="200" frozen="true" align="center">
+              <af:inputText value="#{row.bindings.IfaceShortName.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.IfaceShortName.tooltip}"
+                            id="it2" readOnly="true">
+                <f:validator binding="#{row.bindings.IfaceShortName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.name}"
+                       sortable="false" headerText="Lookup Type" id="c1"
+                       width="200" frozen="true" align="center">
+              <af:inputText value="#{row.bindings.LookupType.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.LookupType.tooltip}"
+                            id="it5" readOnly="true">
+                <f:validator binding="#{row.bindings.LookupType.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.ParentIfaceId.name}"
+                       sortable="false" headerText="Parent Interface" id="c4"
+                       width="100" frozen="true" align="center">
+              <af:selectOneChoice value="#{row.bindings.ParentIfaceId.inputValue}"
+                                  label="#{row.bindings.ParentIfaceId.label}"
+                                  required="#{bindings.XXdmInterfaceMaster_Vo1.hints.ParentIfaceId.mandatory}"
+                                  shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.ParentIfaceId.tooltip}"
+                                  id="soc1" readOnly="true">
+                <f:selectItems value="#{row.bindings.ParentIfaceId.items}"
+                               id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.StagingTable.name}"
+                       sortable="false" headerText="Staging Table" id="c6"
+                       width="200" align="center">
+              <af:selectOneChoice value="#{row.bindings.StagingTable.inputValue}"
+                                  label="#{row.bindings.StagingTable.label}"
+                                  required="#{bindings.XXdmInterfaceMaster_Vo1.hints.StagingTable.mandatory}"
+                                  shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.StagingTable.tooltip}"
+                                  id="soc2" readOnly="true">
+                <f:selectItems value="#{row.bindings.StagingTable.items}"
+                               id="si2"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionTableType.label}"
+                       id="c20" width="250" align="center">
+              <af:outputText value="#{row.DataExtractionTableType}" id="ot7"/>
+            </af:column>
+            <af:column headerText="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionObjType.label}"
+                       id="c19" width="250" align="center">
+              <af:outputText value="#{row.DataExtractionObjType}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.XXdmInterfaceMaster_Vo1.hints.DefaultTab.label}"
+                       id="c18" width="250" align="center">
+              <af:outputText value="#{row.DefaultTab}" id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.XXdmInterfaceMaster_Vo1.hints.DisplayOrder.label}"
+                       id="c17" align="center">
+              <af:outputText value="#{row.DisplayOrder}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.name}"
+                       sortable="false" headerText="Process Procedure" id="c5"
+                       width="250" align="center">
+              <af:inputText value="#{row.bindings.ProcessProc.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.ProcessProc.tooltip}"
+                            id="it3" readOnly="true">
+                <f:validator binding="#{row.bindings.ProcessProc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.name}"
+                       sortable="false" headerText="Validation Procedure"
+                       id="c3" width="250" align="center">
+              <af:inputText value="#{row.bindings.ValidationProc.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.ValidationProc.tooltip}"
+                            id="it1" readOnly="true">
+                <f:validator binding="#{row.bindings.ValidationProc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.name}"
+                       sortable="false" headerText="Data Extraction Procedure"
+                       id="c16" width="250" align="center">
+              <af:inputText value="#{row.bindings.DataExtractionProc.inputValue}"
+                            label="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.label}"
+                            required="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.mandatory}"
+                            columns="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.displayWidth}"
+                            maximumLength="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.precision}"
+                            shortDesc="#{bindings.XXdmInterfaceMaster_Vo1.hints.DataExtractionProc.tooltip}"
+                            id="it13" readOnly="true">
+                <f:validator binding="#{row.bindings.DataExtractionProc.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <af:popup id="p1"
+                    binding="#{backingBeanScope.backing_pages_Dashboard.dataMigrationPopup}">
+            <af:dialog id="d1" type="none" title="Data Migration">
+              <f:facet name="buttonBar">
+                <af:group id="g1">
+                  <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                    text="Save"
+                                    id="cb1"/>
+                  <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                    text="Cancel"
+                                    immediate="true" id="cb2">
+                    <af:resetActionListener/>
+                  </af:commandButton>
+                </af:group>
+              </f:facet>
+              <af:panelFormLayout id="pfl1" rows="4" maxColumns="3">
+                <af:inputText value="#{bindings.IfaceName.inputValue}"
+                              label="Interface Name"
+                              required="#{bindings.IfaceName.hints.mandatory}"
+                              columns="#{bindings.IfaceName.hints.displayWidth}"
+                              maximumLength="#{bindings.IfaceName.hints.precision}"
+                              shortDesc="#{bindings.IfaceName.hints.tooltip}"
+                              id="it9">
+                  <f:validator binding="#{bindings.IfaceName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.IfaceShortName.inputValue}"
+                              label="Interface Short Name"
+                              required="#{bindings.IfaceShortName.hints.mandatory}"
+                              columns="#{bindings.IfaceShortName.hints.displayWidth}"
+                              maximumLength="#{bindings.IfaceShortName.hints.precision}"
+                              shortDesc="#{bindings.IfaceShortName.hints.tooltip}"
+                              id="it7">
+                  <f:validator binding="#{bindings.IfaceShortName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.LookupType.inputValue}"
+                              label="Lookup Type Name"
+                              required="#{bindings.LookupType.hints.mandatory}"
+                              columns="#{bindings.LookupType.hints.displayWidth}"
+                              maximumLength="#{bindings.LookupType.hints.precision}"
+                              shortDesc="#{bindings.LookupType.hints.tooltip}"
+                              id="it6">
+                  <f:validator binding="#{bindings.LookupType.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.StagingTable.inputValue}"
+                                    label="#{bindings.StagingTable.label}"
+                                    required="#{bindings.StagingTable.hints.mandatory}"
+                                    shortDesc="#{bindings.StagingTable.hints.tooltip}"
+                                    id="soc4">
+                  <f:selectItems value="#{bindings.StagingTable.items}"
+                                 id="si4"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.ParentIfaceId.inputValue}"
+                                    label="Parent Interface"
+                                    required="#{bindings.ParentIfaceId.hints.mandatory}"
+                                    shortDesc="#{bindings.ParentIfaceId.hints.tooltip}"
+                                    id="soc3">
+                  <f:selectItems value="#{bindings.ParentIfaceId.items}"
+                                 id="si3"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.ProcessProc.inputValue}"
+                              label="Process Procedure"
+                              required="#{bindings.ProcessProc.hints.mandatory}"
+                              columns="#{bindings.ProcessProc.hints.displayWidth}"
+                              maximumLength="#{bindings.ProcessProc.hints.precision}"
+                              shortDesc="#{bindings.ProcessProc.hints.tooltip}"
+                              id="it8">
+                  <f:validator binding="#{bindings.ProcessProc.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.ValidationProc.inputValue}"
+                              label="Validation Procedre"
+                              required="#{bindings.ValidationProc.hints.mandatory}"
+                              columns="#{bindings.ValidationProc.hints.displayWidth}"
+                              maximumLength="#{bindings.ValidationProc.hints.precision}"
+                              shortDesc="#{bindings.ValidationProc.hints.tooltip}"
+                              id="it10">
+                  <f:validator binding="#{bindings.ValidationProc.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DataExtractionProc.inputValue}"
+                              label="Data Extraction Procedure"
+                              required="#{bindings.DataExtractionProc.hints.mandatory}"
+                              columns="#{bindings.DataExtractionProc.hints.displayWidth}"
+                              maximumLength="#{bindings.DataExtractionProc.hints.precision}"
+                              shortDesc="#{bindings.DataExtractionProc.hints.tooltip}"
+                              id="it16">
+                  <f:validator binding="#{bindings.DataExtractionProc.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DefaultTab.inputValue}"
+                              label="#{bindings.DefaultTab.hints.label}"
+                              required="#{bindings.DefaultTab.hints.mandatory}"
+                              columns="#{bindings.DefaultTab.hints.displayWidth}"
+                              maximumLength="#{bindings.DefaultTab.hints.precision}"
+                              shortDesc="#{bindings.DefaultTab.hints.tooltip}"
+                              id="it18">
+                  <f:validator binding="#{bindings.DefaultTab.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DataExtractionObjType.inputValue}"
+                              label="#{bindings.DataExtractionObjType.hints.label}"
+                              required="#{bindings.DataExtractionObjType.hints.mandatory}"
+                              columns="#{bindings.DataExtractionObjType.hints.displayWidth}"
+                              maximumLength="#{bindings.DataExtractionObjType.hints.precision}"
+                              shortDesc="#{bindings.DataExtractionObjType.hints.tooltip}"
+                              id="it20">
+                  <f:validator binding="#{bindings.DataExtractionObjType.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DataExtractionTableType.inputValue}"
+                              label="#{bindings.DataExtractionTableType.hints.label}"
+                              required="#{bindings.DataExtractionTableType.hints.mandatory}"
+                              columns="#{bindings.DataExtractionTableType.hints.displayWidth}"
+                              maximumLength="#{bindings.DataExtractionTableType.hints.precision}"
+                              shortDesc="#{bindings.DataExtractionTableType.hints.tooltip}"
+                              id="it19">
+                  <f:validator binding="#{bindings.DataExtractionTableType.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.DisplayOrder.inputValue}"
+                              label="#{bindings.DisplayOrder.hints.label}"
+                              required="#{bindings.DisplayOrder.hints.mandatory}"
+                              columns="#{bindings.DisplayOrder.hints.displayWidth}"
+                              maximumLength="#{bindings.DisplayOrder.hints.precision}"
+                              shortDesc="#{bindings.DisplayOrder.hints.tooltip}"
+                              id="it17">
+                  <f:validator binding="#{bindings.DisplayOrder.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:dialog>
+          </af:popup>
+        </af:panelCollection>
+        <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t4" flex="100">
+              <af:commandImageLink actionListener="#{bindings.CreateInsert1.execute}"
+                                   disabled="#{!bindings.CreateInsert1.enabled}"
+                                   id="cil3" icon="/image/add.png"/>
+              <af:commandImageLink actionListener="#{bindings.Delete1.execute}"
+                                   id="cil5" icon="/image/delete.png"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.XxdmStgMapping_VO1.collectionModel}"
+                    var="row" rows="#{bindings.XxdmStgMapping_VO1.rangeSize}"
+                    emptyText="#{bindings.XxdmStgMapping_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="6"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.XxdmStgMapping_VO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.XxdmStgMapping_VO1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t3" partialTriggers=":::pc1:t1"
+                    varStatus="vs" scrollPolicy="page" autoHeightRows="0">
+            <af:column id="c15" headerText="S.No" width="50"
+                       inlineStyle="height:0.8cm;" align="center">
+              <af:outputText value="#{vs.index+1}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.StgColumnName.name}"
+                       sortable="false"
+                       headerText="Stagging column"
+                       id="c10" width="233" align="center">
+              <af:selectOneChoice value="#{row.bindings.StgColumnName.inputValue}"
+                                  label="#{row.bindings.StgColumnName.label}"
+                                  required="#{bindings.XxdmStgMapping_VO1.hints.StgColumnName.mandatory}"
+                                  shortDesc="#{bindings.XxdmStgMapping_VO1.hints.StgColumnName.tooltip}"
+                                  id="soc5">
+                <f:selectItems value="#{row.bindings.StgColumnName.items}"
+                               id="si5"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.DataType.name}"
+                       sortable="false"
+                       headerText="Data Type"
+                       id="c12" width="233" align="center">
+              <af:selectOneChoice value="#{row.bindings.DataType.inputValue}"
+                                  label="#{row.bindings.DataType.label}"
+                                  required="#{bindings.XxdmStgMapping_VO1.hints.DataType.mandatory}"
+                                  shortDesc="#{bindings.XxdmStgMapping_VO1.hints.DataType.tooltip}"
+                                  id="soc6">
+                <f:selectItems value="#{row.bindings.DataType.items}" id="si6"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.name}"
+                       sortable="false"
+                       headerText="Default Value"
+                       id="c11" width="233" align="center">
+              <af:inputText value="#{row.bindings.DefaultValue.inputValue}"
+                            label="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.label}"
+                            required="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.mandatory}"
+                            columns="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.displayWidth}"
+                            maximumLength="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.precision}"
+                            shortDesc="#{bindings.XxdmStgMapping_VO1.hints.DefaultValue.tooltip}"
+                            id="it11">
+                <f:validator binding="#{row.bindings.DefaultValue.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.name}"
+                       sortable="false"
+                       headerText="Display In Page"
+                       id="c13" width="233" align="center">
+              <af:inputText value="#{row.bindings.DisplayInPage.inputValue}"
+                            label="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.label}"
+                            required="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.mandatory}"
+                            columns="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.displayWidth}"
+                            maximumLength="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.precision}"
+                            shortDesc="#{bindings.XxdmStgMapping_VO1.hints.DisplayInPage.tooltip}"
+                            id="it15">
+                <f:validator binding="#{row.bindings.DisplayInPage.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.name}"
+                       sortable="false"
+                       headerText="Excel Column"
+                       id="c14" width="233" align="center">
+              <af:inputText value="#{row.bindings.ExcelColumnNum.inputValue}"
+                            label="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.label}"
+                            required="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.mandatory}"
+                            columns="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.displayWidth}"
+                            maximumLength="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.precision}"
+                            shortDesc="#{bindings.XxdmStgMapping_VO1.hints.ExcelColumnNum.tooltip}"
+                            id="it14">
+                <f:validator binding="#{row.bindings.ExcelColumnNum.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.XxdmStgMapping_VO1.hints.PromptName.name}"
+                       sortable="false"
+                       headerText="Promt Name"
+                       id="c9" width="233" align="center">
+              <af:inputText value="#{row.bindings.PromptName.inputValue}"
+                            label="#{bindings.XxdmStgMapping_VO1.hints.PromptName.label}"
+                            required="#{bindings.XxdmStgMapping_VO1.hints.PromptName.mandatory}"
+                            columns="#{bindings.XxdmStgMapping_VO1.hints.PromptName.displayWidth}"
+                            maximumLength="#{bindings.XxdmStgMapping_VO1.hints.PromptName.precision}"
+                            shortDesc="#{bindings.XxdmStgMapping_VO1.hints.PromptName.tooltip}"
+                            id="it12">
+                <f:validator binding="#{row.bindings.PromptName.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

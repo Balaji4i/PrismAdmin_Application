@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxdmStgMapping_VO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="XxdmStgMapping_EO.CREATED_BY, 
+       XxdmStgMapping_EO.CREATION_DATE, 
+       XxdmStgMapping_EO.DATA_TYPE, 
+       XxdmStgMapping_EO.DEFAULT_VALUE, 
+       XxdmStgMapping_EO.DISPLAY_IN_PAGE, 
+       XxdmStgMapping_EO.ESM_ID, 
+       XxdmStgMapping_EO.EXCEL_COLUMN_NUM, 
+       XxdmStgMapping_EO.IFACE_ID, 
+       XxdmStgMapping_EO.LAST_UPDATE_DATE, 
+       XxdmStgMapping_EO.LAST_UPDATE_LOGIN, 
+       XxdmStgMapping_EO.LAST_UPDATED_BY, 
+       XxdmStgMapping_EO.PROMPT_NAME, 
+       XxdmStgMapping_EO.STG_COLUMN_NAME"
+  FromList="XXDM_EXCEL_STG_MAPPING XxdmStgMapping_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.VO.XxdmStgMapping_VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="UserTableColumnsROVO1"
+    ViewObjectName="fusion.um.model.ROVO.UserTableColumnsROVO">
+    <ParameterMap>
+      <PIMap Variable="P_TABLE_NAME">
+        <TransientExpression><![CDATA[XXdmInterfaceMaster_Vo.StagingTable]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="DataTypes_STATVO1"
+    ViewObjectName="fusion.um.model.STATVO.DataTypes_STATVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_StgColumnName"
+    ListVOName="UserTableColumnsROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StgColumnName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ColumnName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ColumnName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DataType"
+    ListVOName="DataTypes_STATVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DataType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DisplayName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxdmStgMapping_EO"
+    Entity="fusion.um.model.EO.XxdmStgMapping_EO"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="DataType"
+    PrecisionRule="true"
+    EntityAttrName="DataType"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="DATA_TYPE"
+    LOVName="LOV_DataType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DefaultValue"
+    PrecisionRule="true"
+    EntityAttrName="DefaultValue"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="DEFAULT_VALUE"/>
+  <ViewAttribute
+    Name="DisplayInPage"
+    PrecisionRule="true"
+    EntityAttrName="DisplayInPage"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="DISPLAY_IN_PAGE"/>
+  <ViewAttribute
+    Name="EsmId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EsmId"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="ESM_ID">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXDM_ESM_ID_S",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExcelColumnNum"
+    PrecisionRule="true"
+    EntityAttrName="ExcelColumnNum"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="EXCEL_COLUMN_NUM"/>
+  <ViewAttribute
+    Name="IfaceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IfaceId"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="IFACE_ID"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="LAST_UPDATE_LOGIN"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="PromptName"
+    PrecisionRule="true"
+    EntityAttrName="PromptName"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="PROMPT_NAME"/>
+  <ViewAttribute
+    Name="StgColumnName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StgColumnName"
+    EntityUsage="XxdmStgMapping_EO"
+    AliasName="STG_COLUMN_NAME"
+    LOVName="LOV_StgColumnName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+  <ViewLinkAccessor
+    Name="XXdmInterfaceMaster_Vo"
+    ViewLink="fusion.um.model.VL.InterfaceStg_VL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

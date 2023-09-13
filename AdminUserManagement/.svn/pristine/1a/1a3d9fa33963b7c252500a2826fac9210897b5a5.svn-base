@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Reports_BTF">
+    <default-activity id="__1">Reports</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name id="__5">pageFlow_fragment_reports</managed-bean-name>
+      <managed-bean-class id="__2">fusion.um.view.backing.ReportsPfb</managed-bean-class>
+      <managed-bean-scope id="__3">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Reports">
+      <page>/fragments/Reports.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
